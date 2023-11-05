@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "startups",
+  "info": {
+    "singularName": "startup",
+    "pluralName": "startups",
+    "displayName": "startups",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "email": {
+      "type": "email",
+      "unique": true,
+      "required": true
+    },
+    "verified": {
+      "type": "boolean",
+      "default": false,
+      "required": false
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "posts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::post.post",
+      "mappedBy": "startup"
+    }
+  }
+}
