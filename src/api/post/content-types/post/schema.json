@@ -15,49 +15,20 @@
     "Description": {
       "type": "text"
     },
-    "userEmail": {
-      "type": "email"
-    },
-    "images": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "publTime": {
-      "type": "datetime"
-    },
-    "userName": {
-      "type": "string"
-    },
     "Title": {
       "type": "string"
-    },
-    "category": {
-      "type": "enumeration",
-      "enum": [
-        "yoga",
-        "homeopathy",
-        "skin care",
-        "etc"
-      ]
-    },
-    "startup": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::startup.startup",
-      "inversedBy": "posts"
     },
     "likes": {
       "type": "integer"
     },
-    "comments": {
-      "type": "integer"
+    "user_datum": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::user-data.user-data",
+      "inversedBy": "posts"
+    },
+    "img_url": {
+      "type": "string"
     }
   }
 }

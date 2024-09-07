@@ -361,135 +361,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiFormForm extends Schema.CollectionType {
-  collectionName: 'forms';
-  info: {
-    singularName: 'form';
-    pluralName: 'forms';
-    displayName: 'forms';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    user: Attribute.Relation<
-      'api::form.form',
-      'manyToOne',
-      'api::user-data.user-data'
-    >;
-    type: Attribute.String;
-    A1: Attribute.String;
-    A2: Attribute.String;
-    A3: Attribute.String;
-    A4: Attribute.String;
-    A5: Attribute.String;
-    A6: Attribute.String;
-    A7: Attribute.String;
-    A8: Attribute.String;
-    A9: Attribute.String;
-    A10: Attribute.String;
-    A11: Attribute.String;
-    A12: Attribute.String;
-    A13: Attribute.String;
-    A14: Attribute.String;
-    A15: Attribute.String;
-    A16: Attribute.String;
-    A17: Attribute.String;
-    A18: Attribute.String;
-    A19: Attribute.String;
-    A20: Attribute.String;
-    A21: Attribute.String;
-    A22: Attribute.String;
-    G1: Attribute.String;
-    G2: Attribute.String;
-    G3: Attribute.String;
-    G4: Attribute.String;
-    G5: Attribute.String;
-    G6: Attribute.String;
-    G7: Attribute.String;
-    G8: Attribute.String;
-    G9: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::form.form', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::form.form', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
-export interface ApiNotificationNotification extends Schema.CollectionType {
-  collectionName: 'notifications';
-  info: {
-    singularName: 'notification';
-    pluralName: 'notifications';
-    displayName: 'notification';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    email: Attribute.Email;
-    message: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::notification.notification',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::notification.notification',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiUserDataUserData extends Schema.CollectionType {
-  collectionName: 'userdata';
-  info: {
-    singularName: 'user-data';
-    pluralName: 'userdata';
-    displayName: 'user-data';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    uid: Attribute.UID;
-    email: Attribute.Email & Attribute.Required;
-    name: Attribute.String;
-    pp: Attribute.Media;
-    forms: Attribute.Relation<
-      'api::user-data.user-data',
-      'oneToMany',
-      'api::form.form'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::user-data.user-data',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::user-data.user-data',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -805,6 +676,152 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiJobJob extends Schema.CollectionType {
+  collectionName: 'jobs';
+  info: {
+    singularName: 'job';
+    pluralName: 'jobs';
+    displayName: 'Job';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    company: Attribute.String;
+    position: Attribute.String;
+    job_description: Attribute.Text;
+    contact: Attribute.String;
+    user_datum: Attribute.Relation<
+      'api::job.job',
+      'manyToOne',
+      'api::user-data.user-data'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::job.job', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::job.job', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiNotificationNotification extends Schema.CollectionType {
+  collectionName: 'notifications';
+  info: {
+    singularName: 'notification';
+    pluralName: 'notifications';
+    displayName: 'notification';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    email: Attribute.Email;
+    message: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::notification.notification',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::notification.notification',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPostPost extends Schema.CollectionType {
+  collectionName: 'posts';
+  info: {
+    singularName: 'post';
+    pluralName: 'posts';
+    displayName: 'posts';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Description: Attribute.Text;
+    Title: Attribute.String;
+    likes: Attribute.Integer;
+    user_datum: Attribute.Relation<
+      'api::post.post',
+      'manyToOne',
+      'api::user-data.user-data'
+    >;
+    img_url: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::post.post', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::post.post', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiUserDataUserData extends Schema.CollectionType {
+  collectionName: 'userdata';
+  info: {
+    singularName: 'user-data';
+    pluralName: 'userdata';
+    displayName: 'user-data';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    uid: Attribute.UID;
+    email: Attribute.Email & Attribute.Required;
+    name: Attribute.String;
+    password: Attribute.String;
+    posts: Attribute.Relation<
+      'api::user-data.user-data',
+      'oneToMany',
+      'api::post.post'
+    >;
+    img_url: Attribute.String;
+    linkedin: Attribute.String;
+    location: Attribute.String;
+    year: Attribute.String;
+    department: Attribute.String;
+    current_company: Attribute.String;
+    student_id: Attribute.String;
+    status: Attribute.Enumeration<['verified', 'notVerified']>;
+    mobile: Attribute.BigInteger;
+    jobs: Attribute.Relation<
+      'api::user-data.user-data',
+      'oneToMany',
+      'api::job.job'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::user-data.user-data',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::user-data.user-data',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Shared {
     export interface ContentTypes {
@@ -815,15 +832,16 @@ declare module '@strapi/strapi' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::form.form': ApiFormForm;
-      'api::notification.notification': ApiNotificationNotification;
-      'api::user-data.user-data': ApiUserDataUserData;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::job.job': ApiJobJob;
+      'api::notification.notification': ApiNotificationNotification;
+      'api::post.post': ApiPostPost;
+      'api::user-data.user-data': ApiUserDataUserData;
     }
   }
 }

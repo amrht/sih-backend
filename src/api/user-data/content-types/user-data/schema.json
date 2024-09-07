@@ -22,22 +22,51 @@
     "name": {
       "type": "string"
     },
-    "pp": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+    "password": {
+      "type": "string"
     },
-    "forms": {
+    "posts": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::form.form",
-      "mappedBy": "user"
+      "target": "api::post.post",
+      "mappedBy": "user_datum"
+    },
+    "img_url": {
+      "type": "string"
+    },
+    "linkedin": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "year": {
+      "type": "string"
+    },
+    "department": {
+      "type": "string"
+    },
+    "current_company": {
+      "type": "string"
+    },
+    "student_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "verified",
+        "notVerified"
+      ]
+    },
+    "mobile": {
+      "type": "biginteger"
+    },
+    "jobs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::job.job",
+      "mappedBy": "user_datum"
     }
   }
 }
